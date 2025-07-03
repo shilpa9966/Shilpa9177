@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.container {
+display: grid;
+gap:30px;
+
+grid-template-columns:auto auto auto ;
+background-color:pink;
+padding:10px;
+}
+.container>div{
+background-color:#f1f1f1;
+border:1px solid black;
+padding= 10px;
+font-size:30px;
+text-align:center;
+}
+.item1 {
+grid-column-start: 1;
+grid-column-end: 3;
+}
+</style>
+</head>
+<body>
+<h1>display:grid<h1>
+<p>Use display: to make an grid container:</p>
+<div class="container">
+<div class="item1">1</div>
+<div>2</div>
+<div>3</div>
+<div>4</div>
+<div>5</div>
+<div>6</div>
+<div>7</div>
+<div>8</div>
+</div>
+</body>
+</html>
+
