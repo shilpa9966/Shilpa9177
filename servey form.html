@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>
+        Build a Survey Form using HTML and CSS
+    </title>
+ 
+    <style>
+  
+        body {
+            background-color: pink;
+            font-family: Verdana;
+            text-align: center;
+        }
+         
+        form {
+            background-color: #fff;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 30px 20px;
+            box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+        }
+         
+        .form-control {
+            text-align: left;
+            margin-bottom: 25px;
+        }
+.
+        
+        .form-control label {
+            display: block;
+            margin-bottom: 10px;
+        }
+ 
+        /* Styling form-control input,
+        select, textarea */
+        .form-control input,
+        .form-control select,
+        .form-control textarea {
+            border: 1px solid #777;
+            border-radius: 2px;
+            font-family: inherit;
+            padding: 10px;
+            display: block;
+            width: 95%;
+        }
+ 
+        
+        .form-control input[type="radio"],
+        .form-control input[type="checkbox"] {
+            display: inline-block;
+            width: auto;
+        }
+ 
+        
+        button {
+            background-color:Green;
+            border: 1px black #777;
+            border-radius: 2px;
+            font-family: inherit;
+            font-size: 21px;
+            display: block;
+            width: 95%;
+            margin-top: 50px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+  
+<body>
+    <h1><u><b>Trainer Servey Form</b></u></h1>
+  
+    <!-- Create Form -->
+    <form id="form">
+ 
+        <!-- Details -->
+       <b> <div class="form-control">
+            <label for="name" id="label-name">
+                Name
+            </label>
+ 
+            <!-- Input Type Text -->
+            <input type="text"
+                   id="Name"
+                   placeholder="Enter your name" />
+        </div></b>
+  
+        <b><div class="form-control">
+            <label for="email" id="label-email">
+                Email
+            </label>
+ 
+            <!-- Input Type Email-->
+            <input type="email"
+                   id="Email"
+                   placeholder="Enter your email" />
+        </div></b>
+            <b><div class="form-control">
+            <label for="time period" id="label-time period">
+                Time Period
+            </label>
+ 
+            <!-- Input Type Time Period-->
+            <input type="time duration"
+                   id="Time Duration"
+                   placeholder="Enter your Time" />
+          </div></b>
+          <div class="form-control">
+            <b><label for="role" id="label-role">
+                Gender
+            </label></b>
+             
+            <!-- Dropdown options -->
+            <select name="role" id="role">
+            <option value="female">Female</option>
+                <option value="male">Male</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+  
+        <b> <div class="form-control">
+            <label for="age" id="label-age">
+                Age
+            </label>
+ 
+            <!-- Input Type Text -->
+           <input type="text"
+                   id="age"
+                   placeholder="Enter your age" />
+        </div></b>
+             <b> <div class="form-control">
+            <label for="phone no" id="label-phone no">
+               Phone No
+            </label>
+ 
+            <!-- Input Type Text -->
+           <input type="text"
+                   id="phone no"
+                   placeholder="Enter your number" pattern="[0-9]{10}" required />
+        </div></b>
+         
+  
+        <div class="form-control">
+            <b><label for="role" id="label-role">
+                Feedback
+            </label></b>
+             
+            <!-- Dropdown options -->
+            <select name="role" id="role">
+            <option value="excellent">Excellent</option>
+                <option value="good">Good</option>
+                <option value="very good">Very Good</option>
+                <option value="average">
+                    Average
+                </option>
+                <option value="bad">Bad</option>
+            </select>
+        </div>
+  
+        <div class="form-control">
+           <b> <label>
+                Would you recommend Praveen Sir 
+                to a friend?
+            </label><br><br></b>
+ 
+            <!-- Input Type Radio Button -->
+            <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed">Yes</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed">No</input>
+            </label>
+            <label for="recommed-3">
+                <input type="radio"
+                       id="recommed-3"
+                       name="recommed">Maybe</input>
+            </label>
+        </div>
+  
+        <div class="form-control">
+            <b><label>Languages and Frameworks known
+                <small>(Check all that apply)</small>
+            </label><br><br></b>
+            <!-- Input Type Checkbox -->
+            <label for="inp-1">
+                <input type="checkbox"
+                       name="inp">C</input></label><br>
+            <label for="inp-2">
+                <input type="checkbox"
+                       name="inp">C++</input></label><br>
+            <label for="inp-3">
+                <input type="checkbox"
+                       name="inp">C#</input></label><br>
+            <label for="inp-4">
+                <input type="checkbox"
+                       name="inp">Java</input></label><br>
+            <label for="inp-5">
+                <input type="checkbox"
+                       name="inp">Python</input></label><br>
+            <label for="inp-6">
+                <input type="checkbox"
+                       name="inp">JavaScript</input></label><br>
+            <label for="inp-7">
+                <input type="checkbox"
+                       name="inp">React</input></label><br>
+            <label for="inp-8">
+                <input type="checkbox"
+                       name="inp">Angular</input></label><br>
+            <label for="inp-9">
+                <input type="checkbox"
+                       name="inp">Django</input></label><br>
+            <label for="inp-10">
+                <input type="checkbox"
+                       name="inp">Spring</input></label><br>
+        </div>
+  
+        <div class="form-control">
+            <b><label for="comment">
+                Any comments or suggestions
+            </label></b>
+ 
+            <!-- multi-line text input control -->
+            <textarea name="comment" id="comment"
+                placeholder="Enter your comment here">
+            </textarea>
+        </div>
+  
+        <!-- Multi-line Text Input Control -->
+        <button type="submit" value="submit">
+            Submit
+        </button>
+    </form>
+</body>
+</html>
+SurveyForm1.html
