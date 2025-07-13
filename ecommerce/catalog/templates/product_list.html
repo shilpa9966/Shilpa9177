@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Product Catalog</title>
+    <style>
+        img {
+            max-width: 150px;
+        }
+
+        .product {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Products</h1>
+
+    <h3>Filter by Category:</h3>
+    <ul>
+        <li><a href="/">All</a></li>
+        {% for category in categories %}
+        <li><a href="?category={{ category.id }}">{{ category.name }}</a></li>
+        {% endfor %}
+    </ul>
+
+    {% for product in products %}
+    <div class="product">
+        {% if product.image %}
+        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+        {% endif %}
+        <h2><a href="{% url 'product_detail' product.pk %}">{{ product.name }}</a></h2>
+        <p>${{ product.price }}</p>
+        <form method="get">
+            <input type="text" name="q" placeholder="Search..." value="{{ request.GET.q }}">
+            <button type="submit">Search</button>
+            {% if request.GET.category %}
+            <input type="hidden" name="category" value="{{ request.GET.category }}">
+            {% endif %}
+        </form>
+    </div>
+    {% endfor %}
+</body>
+
+</html>

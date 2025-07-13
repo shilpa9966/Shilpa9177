@@ -1,0 +1,13 @@
+<html>
+<head><title>cart</title></head>
+<body>
+<h2>Your Cart</h2>
+{% for product in products %}
+    <div>
+        <h3>{{ product.name }}</h3>
+        <p>${{ product.price }}</p>
+    </div>
+{% endfor %}
+<a href="/">Continue Shopping</a>
+</body>
+</html>

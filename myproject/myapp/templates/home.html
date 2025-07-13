@@ -1,8 +1,15 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
 
-{% block title %}Home Page{% endblock %}
+<head>
+    <title>PDF Example</title>
+</head>
 
-{% block content %}
-<h2>Welcome to the Home Page!</h2>
-<p>This content is coming from home.html and uses the base layout.</p>
-{% endblock %}
+<body>
+    <h1>PDF Print Example</h1>
+    <a href="{% url 'generate_pdf' %}" target="_blank">
+        <button>Print PDF</button>
+    </a>
+</body>
+
+</html>

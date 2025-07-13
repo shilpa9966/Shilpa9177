@@ -1,11 +1,7 @@
-from django.shortcuts import render
 from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('home/', views.home, name='home'),
-    path('mca101/',views.mca101, name='mca101'),
-    path('mca102/',views.mca102, name='mca102'),
-    path('mca103/',views.mca103, name='mca103'),
+    path('', views.home, name='home'),
+    path('generate_pdf/', views.generate_pdf, name='generate_pdf'),
 ]
-# Create your views here.
