@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ITEMS</title>
+    <style>
+        img {
+            max-width: 150px;
+        }
+
+        .product {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            display: inline-block;
+            vertical-align: top;
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Mother theresa</h1>
+    <h3>Available canteen items</h3>
+    {% for product in products %}
+    <div class="product">
+        {% if product.image %}
+        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+        {% endif %}
+        <h2><a href="{% url 'product_detail' product.pk %}">{{ product.name }}</a></h2>
+        <p><strong>Price:</strong> ${{ product.price }}</p>
+        {% if product.description %}
+        <p>{{ product.description }}</p>
+        {% endif %}
+    </div>
+    {% endfor %}
+</body>
+
+</html>

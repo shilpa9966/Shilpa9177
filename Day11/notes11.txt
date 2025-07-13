@@ -1,0 +1,177 @@
+1. Create Project & App
+
+django-admin startproject food_project
+cd food_project
+python manage.py startapp food_app
+
+2. Register App in settings.py
+
+# food_project/settings.py
+INSTALLED_APPS = [
+    ...
+    'food_app',
+]
+
+3. Create Models
+
+# food_app/models.py
+from django.db import models
+
+class FoodItem(models.Model):
+    CATEGORY_CHOICES = [
+        ('canteen', 'Canteen'),
+        ('bakery', 'Bakery'),
+    ]
+    name = models.CharField(max_length=100)
+    price = models.DecimalField(max_digits=6, decimal_places=2)
+    image = models.ImageField(upload_to='images/')
+    category = models.CharField(max_length=10, choices=CATEGORY_CHOICES)
+
+    def __str__(self):
+        return self.name
+
+4. Admin Setup
+
+# food_app/admin.py
+from django.contrib import admin
+from .models import FoodItem
+
+admin.site.register(FoodItem)
+
+5. Views
+
+# food_app/views.py
+from django.shortcuts import render
+from .models import FoodItem
+
+def index(request):
+    canteen_items = FoodItem.objects.filter(category='canteen')
+    bakery_items = FoodItem.objects.filter(category='bakery')
+    return render(request, 'food_app/index.html', {
+        'canteen_items': canteen_items,
+        'bakery_items': bakery_items
+    })
+
+6. URLs
+
+# food_app/urls.py
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.index, name='home'),
+]
+
+# food_project/urls.py
+from django.contrib import admin
+from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('food_app.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+7. Template
+
+<!-- food_app/templates/food_app/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Food Menu</title>
+  <style>
+    {% include 'food_app/styles.css' %}
+  </style>
+</head>
+<body>
+  <div class="tabs">
+    <button onclick="showTab('canteen')">Canteen</button>
+    <button onclick="showTab('bakery')">Bakery</button>
+  </div>
+
+  <div id="canteenTab" class="items">
+    {% for item in canteen_items %}
+      <div class="item">
+        <img src="{{ item.image.url }}" alt="{{ item.name }}">
+        <h4>{{ item.name }}</h4>
+        <p>₹{{ item.price }}</p>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div id="bakeryTab" class="items" style="display:none;">
+    {% for item in bakery_items %}
+      <div class="item">
+        <img src="{{ item.image.url }}" alt="{{ item.name }}">
+        <h4>{{ item.name }}</h4>
+        <p>₹{{ item.price }}</p>
+      </div>
+    {% endfor %}
+  </div>
+
+  <script>
+    function showTab(tab) {
+      document.getElementById('canteenTab').style.display = tab === 'canteen' ? 'flex' : 'none';
+      document.getElementById('bakeryTab').style.display = tab === 'bakery' ? 'flex' : 'none';
+    }
+  </script>
+</body>
+</html>
+
+8. Styles (Optional)
+
+/* food_app/static/food_app/styles.css */
+.tabs {
+  margin: 20px;
+}
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.item {
+  width: 200px;
+  text-align: center;
+}
+.item img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+9. Media & Static Settings
+
+# food_project/settings.py
+import os
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'food_app/static')]
+
+
+---
+
+✅ Final Steps
+
+1. Migrate & Create Superuser
+
+
+
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser
+
+2. Run the Server
+
+
+
+python manage.py runserver
+
+3. Visit http://127.0.0.1:8000 for homepage
+Visit http://127.0.0.1:8000/admin to manage food items
+
+
+
