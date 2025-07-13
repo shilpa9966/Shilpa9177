@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}My Website{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body bgcolor=yellow>
+    <header>
+        <img src="{% static 'img/logo.png' %}">
+        <h1>MOTHER THERESA INSTITUTE OF COMPUTER APPLICATIONS</h1>
+<div class="navbar">
+<div class="dropdown">
+ <button class="dropbtn">sem 1</button>
+<div class="dropdown-content">
+ <a href="{% url 'mca101' %}">Mca101</a>
+ <a href="{% url 'mca102' %}">Mca102</a>
+  <a href="{% url 'mca103' %}">Mca103</a>
+  <a href="{% url 'mca104' %}">Mca104</a>
+  <a href="{% url 'mca105' %}">Mca105</a>
+  <a href="{% url 'mca106' %}">Mca106</a>
+  <a href="{% url 'mca107' %}">Mca107</a>
+  <a href="{% url 'mca108' %}">Mca108</a>
+  </div></div>
+<div class="dropdown">
+ <button class="dropbtn">sem 2</button>
+<div class="dropdown-content">
+ <a href="{% url 'mca201' %}">Mca201</a>
+ <a href="{% url 'mca202' %}">Mca202</a>
+ <a href="{% url 'mca203' %}">Mca203</a>
+ <a href="{% url 'mca204' %}">Mca204</a>
+<a href="{% url 'mca205' %}">Mca205</a>
+<a href="{% url 'mca206' %}">Mca206</a>
+<a href="{% url 'mca207' %}">Mca207</a>
+<a href="{% url 'mca208' %}">Mca208</a>
+<a href="{% url 'mca209' %}">Mca209</a>
+</div></div>
+<div class="dropdown">
+ <button class="dropbtn">sem 3</button>
+<div class="dropdown-content">
+ <a href="{% url 'mca301' %}">Mca301</a>
+ <a href="{% url 'mca302' %}">Mca302</a>
+ <a href="{% url 'mca303' %}">Mca303</a>
+ <a href="{% url 'mca304' %}">Mca304</a>
+ <a href="{% url 'mca305' %}">Mca305</a>
+ <a href="{% url 'mca306' %}">Mca306</a>
+ <a href="{% url 'mca307' %}">Mca307</a>
+ <a href="{% url 'mca308' %}">Mca308</a>
+ <a href="{% url 'mca309' %}">Mca309</a>
+ <a href="{% url 'mca310' %}">Mca310</a>
+ </div> </div>
+<div class="dropdown">
+ <button class="dropbtn">sem 4</button>
+<div class="dropdown-content">
+ <a href="{% url 'mca401' %}">Mca401</a>
+ <a href="{% url 'mca402' %}">Mca402</a>
+</div> </div>
+<div class="dropdown">
+<button class="dropbtn">Faculty</button>
+<div class="dropdown-content">
+ <a href="#">Prabhakar Naidu</a>
+ <a href="#">Murali Mohan</a>
+ <a href="#">Chandra Shekar</a>
+ <a href="#">Hasya</a>
+</div>
+</div>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    
+</body>
+</html>
