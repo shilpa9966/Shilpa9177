@@ -1,23 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse 
-from .models import EmployeeModel  
-from .forms import EmployeeForm
-from django.template import loader
-#display form & save data  typed in form 
-def insert_employee(request):
-    context ={}# dictionary for initial data with field names as keys
-    ob_form = EmployeeForm(request.POST or None)
-    if ob_form.is_valid():
-        ob_form.save()
-        return HttpResponse("Data Saved")
-    context['form']= ob_form
-    return render(request, "insert_employee.html", context)  
-
-#view employee data
-def view_employee(request):
-    ob=EmployeeModel.objects.all().values()
-    context={
-        'data':ob
-        }
-    temp=loader.get_template('view_employee.html')
-    return HttpResponse(temp.render(context,request))
+def home(request):
+    return render(request, 'home.html')
+def mca101(request):
+    return render(request, 'mca101.html')
+def mca102(request):
+    return render(request, 'mca102.html')
+def mca103(request):
+    return render(request, 'mca103.html')
+# Create your views here.

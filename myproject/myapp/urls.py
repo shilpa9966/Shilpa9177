@@ -1,7 +1,11 @@
+from django.shortcuts import render
 from django.urls import path
 from . import views
+
 urlpatterns = [
-   path('insert_employee/',views.insert_employee, name='insert_employee'),
-   path('view_employee/', views.view_employee,  name = 'view_employee'),
-# other paths as needed
+    path('home/', views.home, name='home'),
+    path('mca101/',views.mca101, name='mca101'),
+    path('mca102/',views.mca102, name='mca102'),
+    path('mca103/',views.mca103, name='mca103'),
 ]
+# Create your views here.

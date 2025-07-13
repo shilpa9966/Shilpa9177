@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}My Website{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>My Website Header</h1>
+<div class="navbar">
+ <a href="#">Home</a>
+<div class="dropdown">
+ <button class="dropbtn">sem 1</button>
+<div class="dropdown-content">
+ <a href="{% url 'mca101' %}">Mca101</a>
+ <a href="{% url 'mca102' %}">Mca102</a>
+  <a href="{% url 'mca103' %}">Mca103</a>
+  <a href="mca104.html">Mca104</a>
+  <a href="mca105.html">Mca105</a>
+  <a href="mca106.html">Mca106</a>
+  <a href="mca107.html">Mca107</a>
+  <a href="mca108.html">Mca108</a>
+  </div></div>
+<div class="dropdown">
+ <button class="dropbtn">sem 2</button>
+<div class="dropdown-content">
+ <a href="mca201.html">Mca201</a>
+ <a href="mca202.html">Mca202</a>
+ <a href="mca203.html">Mca203</a>
+ <a href="mca204.html">Mca204</a>
+<a href="mca205.html">Mca205</a>
+<a href="mca206.html">Mca206</a>
+<a href="mca207.html">Mca207</a>
+<a href="mca208.html">Mca208</a>
+<a href="mca209.html">Mca209</a>
+</div></div>
+<div class="dropdown">
+ <button class="dropbtn">sem 3</button>
+<div class="dropdown-content">
+ <a href="#">Mca301</a>
+ <a href="#">Mca302</a>
+ <a href="#">Mca303</a>
+ <a href="#">Mca304</a>
+ <a href="#">Mca305</a>
+ <a href="#">Mca306</a>
+ <a href="#">Mca307</a>
+ <a href="#">Mca308</a>
+ <a href="#">Mca309</a>
+ <a href="#">Mca310</a>
+ </div> </div>
+<div class="dropdown">
+ <button class="dropbtn">sem 4</button>
+<div class="dropdown-content">
+ <a href="#">Mca401</a>
+ <a href="#">Mca402</a>
+ <a href="#">Mca403</a>
+</div> </div>
+<div class="dropdown">
+<button class="dropbtn">Exit</button>
+</div>
+</div>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 My Website</p>
+    </footer>
+</body>
+</html>
