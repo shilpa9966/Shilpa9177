@@ -91,7 +91,6 @@
         {% endif %}
         <h2><a href="{% url 'product_detail' product.pk %}">{{ product.name }}</a></h2>
         <p>Rs {{ product.price }}/-</p>
-        <br />
 
         <a href="{% url 'add_to_cart' product.pk %}" class="add-button">Add to Cart</a>
     </div>

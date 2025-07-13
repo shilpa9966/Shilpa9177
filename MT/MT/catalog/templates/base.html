@@ -1,0 +1,42 @@
+<!-- base.html -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{% block title %}My Shop{% endblock %}</title>
+    <style>
+        .top-right {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+        }
+
+        .cart-button {
+            padding: 8px 14px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .cart-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Top Right Cart Button -->
+    <div class="top-right">
+        <a href="{% url 'view_cart' %}" class="cart-button">View Cart 🛒</a>
+    </div>
+
+    <!-- Page Content -->
+    {% block content %}
+    {% endblock %}
+
+</body>
+
+</html>
