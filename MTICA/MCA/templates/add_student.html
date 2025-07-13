@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Student{% endblock %}
+
+{% block content %}
+<h2>Add New Student</h2>
+
+<form method="post" class="student-form">
+    {% csrf_token %}
+    
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" required>
+
+    <label for="regno">Registration Number:</label>
+    <input type="text" name="regno" id="regno" required>
+
+    <label for="college">College:</label>
+    <input type="text" name="college" id="college" required>
+
+    <label for="mobile">Mobile:</label>
+    <input type="text" name="mobile" id="mobile" required>
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" required>
+
+    <button type="submit">Add Student</button>
+</form>
+
+<style>
+    .student-form {
+        background-color: rgba(255, 255, 255, 0.95);
+        padding: 30px;
+        border-radius: 12px;
+        max-width: 500px;
+        margin: 30px auto;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .student-form label {
+        display: block;
+        margin-top: 15px;
+        font-weight: bold;
+        color: #1976d2;
+    }
+
+    .student-form input {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+    }
+
+    .student-form button {
+        margin-top: 25px;
+        padding: 10px 20px;
+        background-color: #1976d2;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    .student-form button:hover {
+        background-color: #1565c0;
+    }
+
+    h2 {
+        text-align: center;
+        color: #1976d2;
+    }
+</style>
+{% endblock %}

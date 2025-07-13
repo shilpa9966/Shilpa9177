@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block title %}Update Student{% endblock %}
+
+{% block content %}
+<h2>Update Student</h2>
+
+<form method="post" class="student-form">
+    {% csrf_token %}
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" value="{{ student.name }}" required>
+
+    <label for="regno">Registration No:</label>
+    <input type="text" name="regno" id="regno" value="{{ student.regno }}" required>
+
+    <label for="college">College:</label>
+    <input type="text" name="college" id="college" value="{{ student.college }}" required>
+
+    <label for="mobile">Mobile:</label>
+    <input type="text" name="mobile" id="mobile" value="{{ student.mobile }}" required>
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" value="{{ student.email }}" required>
+
+    <button type="submit">Update</button>
+</form>
+
+<style>
+    h2 {
+        text-align: center;
+        color: #1976d2;
+        margin-bottom: 30px;
+    }
+
+    .student-form {
+        max-width: 500px;
+        margin: 0 auto;
+        background-color: rgba(255, 255, 255, 0.95);
+        padding: 25px 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .student-form label {
+        display: block;
+        margin-top: 15px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .student-form input {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 14px;
+    }
+
+    .student-form button {
+        margin-top: 25px;
+        width: 100%;
+        padding: 12px;
+        background-color: #1976d2;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .student-form button:hover {
+        background-color: #1565c0;
+    }
+</style>
+{% endblock %}

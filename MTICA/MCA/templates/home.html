@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %} Home Page {% endblock %}
+
+{% block content %}
+  <!-- Display messages (like logout success) -->
+  {% if messages %}
+    {% for message in messages %}
+      <div class="messages {{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+
+  <h2>Let's Explore The Page</h2>
+
+  
+  <script>
+    // Auto-hide messages after 3 seconds
+    setTimeout(function () {
+      document.querySelectorAll('.messages').forEach(msg => msg.style.display = 'none');
+    }, 3000);
+  </script>
+{% endblock %}

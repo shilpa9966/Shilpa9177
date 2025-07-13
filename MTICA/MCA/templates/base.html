@@ -1,0 +1,184 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}MTICA{% endblock %}</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url("{% static 'img/mtca.jpg' %}");
+            background-size: cover;         
+            background-repeat: no-repeat;   
+            background-position: center;    
+            background-attachment: fixed;   
+            min-height: 100vh;            
+        }
+
+        header {
+            background-color: rgba(227, 242, 253, 0.9);
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-img {
+            height: 70px;
+            width: auto;
+            border-radius: 6px;
+        }
+
+        .header-center {
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .header-center h1 {
+            margin: 0;
+            font-size: 40px;
+            color: #0277bd;
+        }
+
+        .header-center h4 {
+            margin: 4px 0 0 0;
+            font-weight: normal;
+            color: #555;
+        }
+
+        .logout-link {
+            background-color: #dc3545;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .logout-link:hover {
+            background-color: #c82333;
+        }
+
+        nav {
+            background-color: #bbdefb;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: flex-start;
+            gap: 10px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 220px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        nav button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #1976d2;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        nav button:hover {
+            background-color: #1565c0;
+        }
+
+        main {
+            padding: 40px;
+            text-align: left;
+        }
+
+        main h2 {
+            color: #1976d2;
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: left;
+            color: #ccc;
+            padding: 10px 20px;
+        }
+
+        a {
+            color: #6a1b9a;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="{% static 'img/aa.jpg' %}" alt="Logo" class="logo-img" />
+        <div class="header-center">
+            <h1>Mother Theresa Institute Of Computer Applications</h1>
+            <h4>Melumoi, Palamaneru-517408</h4>
+        </div>
+        <a href="{% url 'logout' %}" class="logout-link">Logout</a>
+    </header>
+
+    <nav>
+        <div class="dropdown">
+            <button>Master</button>
+            <div class="dropdown-content">
+                <a href="{% url 'add_student' %}">Add Student</a>
+                <a href="{% url 'view_students' %}">View Students</a>
+                <!-- These links can be used with proper student_id dynamically if needed -->
+                <a href="#">Update Student</a>
+                <a href="#">Delete Student</a>
+            </div>
+        </div>
+
+        <button>Transactions</button>
+
+        <div class="dropdown">
+            <button>Reports</button>
+            <div class="dropdown-content">
+                <a href="{% url 'print_students' %}" target="_blank">Print Student Report</a>
+            </div>
+        </div>
+
+        <button>Restore and BackUp</button>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        &copy; 2025 My Website
+    </footer>
+</body>
+</html>
