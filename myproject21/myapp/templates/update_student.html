@@ -1,0 +1,9 @@
+{% extends "master.html" %}
+{% block content %}
+<h2>Update Student Record</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Update">
+</form>
+{% endblock %}
